@@ -41,22 +41,23 @@ public class PassengerTest {
     @Test
     void testIdPass(String Id){
         myPassenger.setId("12345678910");
-
+        assertEquals("1234567890", myPassenger.getId());
     }
 
     @Test
     void testPhonePass(){
-
+        myPassenger.setPhone(0851234567);
+        assertEquals(0851234567, myPassenger.getPhone());
     }
 
     @Test
     void testAgePass(){
-       // assertGreaterThan(17, Passenger.Age);
+        myPassenger.setAge(17);
+        assertEquals(17,myPassenger.getAge());
     }
 
     @Test
     void testNameFail(String Name){
-        myPassenger.setName("Da");
 
     }
 

@@ -29,7 +29,13 @@ public class Passenger {
             throw new IllegalArgumentException("Wrong title");
         }
     }
-    public void getName(String name) {
+
+    public String getName() {
+
+        return Name;
+    }
+
+    public void setName(String name) {
         if (name.length() >= 3) {
          Name = name;
     }
@@ -38,27 +44,33 @@ public class Passenger {
         }
     }
 
-    public void setName(String name) {
-        Name = name;
-    }
-
     public String getId() {
+
         return Id;
     }
 
     public void setId(String id) {
-        Id = id;
+        if(id.length() >= 10)
+        {
+            Id = id;
+        }
+        else {
+            throw new IllegalArgumentException("Id less than 10 characters");
+        }
     }
 
     public int getPhone() {
+
         return Phone;
     }
 
     public void setPhone(int phone) {
+
         Phone = phone;
     }
 
     public int getAge() {
+
         return Age;
     }
 
