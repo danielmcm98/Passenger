@@ -14,12 +14,6 @@ public class PassengerTest {
         myPassenger = new Passenger(null, null, null, null, 0);
     }
 
-    void passengerSuccess(){
-        myPassenger.mainPassenger("Mr","Daniel","1234567890","1234567",24);
-        myPassenger.mainPassenger("Mrs","Daniel","1234567890","1234567",24);
-        myPassenger.mainPassenger("Ms","Daniel","1234567890","1234567",24);
-
-    }
 
     @Test
     void testTitlePassMr(){
