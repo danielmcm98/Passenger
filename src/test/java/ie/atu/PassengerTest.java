@@ -12,6 +12,7 @@ public class PassengerTest {
     @BeforeEach
     void setUP() {
         myPassenger = new Passenger(null, null, null, null, 0);
+        //creating new object of passsenger class
     }
 
 
@@ -19,6 +20,7 @@ public class PassengerTest {
     void testTitlePassMr(){
         myPassenger.mainPassenger("Mr","Daniel","1234567890","1234567",24);
         assertEquals("Mr", myPassenger.getTitle());
+        //testing output from Passeneger file against expected
     }
 
     @Test
@@ -58,13 +60,14 @@ public class PassengerTest {
     }
 
 
-
     @Test
     void testTitleFail(){
         IllegalArgumentException test = assertThrows(IllegalArgumentException.class, () ->{
+            //creating exception called test and creating fail object to test
             myPassenger.mainPassenger("Msr","Daniel","1234567890","1234567",24);
         });
-        assertEquals(test.getMessage(),"Wrong title");
+        assertEquals("Wrong title", test.getMessage());
+        //testing that the error is the same sane as expected from test
     }
 
     @Test
@@ -72,7 +75,7 @@ public class PassengerTest {
         IllegalArgumentException test = assertThrows(IllegalArgumentException.class, () ->{
             myPassenger.mainPassenger("Mr","Da","1234567890","1234567",24);
         });
-        assertEquals(test.getMessage(),"Name too short");
+        assertEquals("Name too short",test.getMessage());
     }
 
     @Test
@@ -80,7 +83,7 @@ public class PassengerTest {
         IllegalArgumentException test = assertThrows(IllegalArgumentException.class, () ->{
             myPassenger.mainPassenger("Mr","Daniel","123456789","1234567",24);
         });
-        assertEquals(test.getMessage(),"Id less than 10 characters");
+        assertEquals("Id less than 10 characters",test.getMessage());
     }
 
     @Test
@@ -88,7 +91,7 @@ public class PassengerTest {
         IllegalArgumentException test = assertThrows(IllegalArgumentException.class, () ->{
             myPassenger.mainPassenger("Mr","Daniel","1234567890","123456",24);
         });
-        assertEquals(test.getMessage(),"Phone to short");
+        assertEquals("Phone to short",test.getMessage());
     }
 
     @Test
@@ -96,7 +99,7 @@ public class PassengerTest {
         IllegalArgumentException test = assertThrows(IllegalArgumentException.class, () ->{
             myPassenger.mainPassenger("Mr","Daniel","1234567890","12345678",15);
         });
-        assertEquals(test.getMessage(),"Age less than 16");
+        assertEquals("Age less than 16",test.getMessage());
     }
 
     @AfterEach

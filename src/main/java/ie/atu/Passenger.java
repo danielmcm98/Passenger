@@ -3,25 +3,25 @@ package ie.atu;
 
 public class Passenger {
 
-    private String Title;
+    private String Title; //creating variables
     private String Name;
     private String Id;
     private String Phone;
     private int Age;
 
-    public Passenger(String title, String name, String id, String phone, int age) {
+    public Passenger(String title, String name, String id, String phone, int age) { //creating object
         Title = title;
         Name = name;
         Id = id;
         Phone = phone;
         Age = age;
     }
-    public void mainPassenger(String title, String name, String id, String phone, int age) {
+    public void mainPassenger(String title, String name, String id, String phone, int age) { //passing variables
 
-            if (title == "Mr" || title == "Mrs" || title == "Ms") {
-                Title = title;
+            if (title == "Mr" || title == "Mrs" || title == "Ms") { //if title matches condition
+                Title = title; //sets title
             } else {
-                throw new IllegalArgumentException("Wrong title");
+                throw new IllegalArgumentException("Wrong title"); //throws arguement if doesnt match
             }
 
             if (name.length() >= 3) {
@@ -49,7 +49,7 @@ public class Passenger {
             }
 
         }
-    public String getTitle() {
+    public String getTitle() { //getter methods for variable
         return Title;
     }
     public String getName() {
