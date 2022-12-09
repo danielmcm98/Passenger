@@ -1,5 +1,6 @@
 package ie.atu.Passenger;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,13 @@ import java.util.List;
 @RequestMapping(path="api/passenger")
 public class ThePassengerApplication {
 
+	PassengerService myService;
+
+
+	public ThePassengerApplication(PassengerService myService) {
+		this.myService = myService;
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(ThePassengerApplication.class, args);
 	}
@@ -21,15 +29,13 @@ public class ThePassengerApplication {
 	@GetMapping
 	public List<Passenger> getPassengers(){
 
-			PassengerService myService = new PassengerService();
 			return myService.getPassengers();
 
 	}
 	@GetMapping("/{passengerID}")
 	public Passenger getPassenger(@PathVariable String passengerID){
-		Passenger myPassenger = new Passenger("Mr", "Daniel", "123", "619L", 24);
-		return myPassenger;
 
+		return myService.getPassenger(passengerID);
 	}
 
 
