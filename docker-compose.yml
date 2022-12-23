@@ -1,0 +1,30 @@
+version: '1'
+services:
+  db3:
+    image: postgres:alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    networks:
+      - db3
+    volumes:
+      - "//%cd%/var/lib/postgresql/data"
+
+
+  server:
+    image: danielmcm98/passengerpost
+    ports:
+      - 8081:8083
+    volumes:
+      - /data/application
+    environment:
+      - spring.datasource.url=jdbc:postgresql://db3:5432/postgres
+    networks:
+      - db3
+    depends_on:
+      - db3
+
+networks:
+  db3:
